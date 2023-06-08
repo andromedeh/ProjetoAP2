@@ -3,7 +3,7 @@ import modelo.*;
 import java.util.ArrayList;
 
 public  class ControleUsuario{
-    private ArrayList <Usuario> listaUsuarios = new ArrayList<>();
+    private static  final ArrayList <Usuario> listaUsuarios = new ArrayList<>();
 
     public ArrayList<Usuario> getListaUsuarios() {
         return listaUsuarios;

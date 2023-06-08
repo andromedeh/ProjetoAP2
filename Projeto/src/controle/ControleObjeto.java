@@ -3,7 +3,7 @@ import modelo.*;
 import java.util.ArrayList;
 
 public class ControleObjeto {
-    ArrayList <Objeto> listaObjetos = new ArrayList<>();
+    private static final ArrayList <Objeto> listaObjetos = new ArrayList<>();
 
     public void cadastrarObjeto(Objeto obj){
         if (obj != null){
