@@ -1,5 +1,7 @@
 package modelo;
 import controle.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class Administrador {
@@ -21,7 +23,7 @@ public class Administrador {
         return senha;
     }
     
-    public void analisarSolicitacoes(){
+    public void analisarSolicitacoes() throws IOException, FileNotFoundException, ClassNotFoundException{
         String opcao;
         for (Usuario user: cUser.getListaUsuarios()){
             for (Solicitacao s : user.getSolicitacoes()){

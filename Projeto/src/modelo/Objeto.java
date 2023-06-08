@@ -7,15 +7,17 @@ public class Objeto {
     private String descricao;
     private Date data; // nao sei trabalhar com essa biblioteca
     private String local; 
+    private int opcao; //tive que criar essa variavel para poder usar em DadosObjetos
     private static int codigo = 0; // pode ser usada em funções de procurar objeto
 
     public Objeto (String nome, String descricao, String local, int opcao){
         setNome(nome);
         setDescricao(descricao);
         setLocal(local);
+        setOpcao(opcao);
         // setDate (data que foi encontrado)
         this.codigo = ++codigo;
-        classificar(opcao);
+        classificar();
     }
 
     public String getNome() {
@@ -53,23 +55,31 @@ public class Objeto {
     public String getLocal() {
         return local;
     }
+    
+    public void setOpcao(int opcao){
+        this.opcao = opcao;
+    }
+    
+    public int getOpcao(){
+        return opcao;
+    }
 
     public void setLocal(String local) {
         this.local = local;
     }
 
-    public static int getCodigo() {
+    public int getCodigo() { //tive que tirar o static para poder usar em DadosObjeto na hora de remover o objeto
         return codigo;
     }
 
-    public static void setCodigo(int codigo) {
+    public void setCodigo(int codigo) {
         Objeto.codigo = codigo;
     }
     
     // set e get de Date 
     
-    public void classificar( int opcao){ // pensei em usar uma variavel tipo para classificar os objetos,
-        switch (opcao){                     // ao inves de criar varios "filhos"
+    public void classificar(){ // pensei em usar uma variavel tipo para classificar os objetos,
+        switch (this.opcao){                     // ao inves de criar varios "filhos"
             case 1:
                 this.tipo = "Documento pessoal";
                 break;
