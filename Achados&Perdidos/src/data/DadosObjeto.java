@@ -10,6 +10,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import model.Objeto;
 
+/**
+ *
+ * @author hugob
+ */
 public class DadosObjeto {
     
     public void cadastrarObjeto(Objeto o) throws FileNotFoundException, IOException{
@@ -20,7 +24,7 @@ public class DadosObjeto {
     }
     
     public ArrayList<Objeto> listarObjetos() throws FileNotFoundException, IOException, ClassNotFoundException{
-        ArrayList<Objeto> objetos = new ArrayList<>();
+        ArrayList objetos = new ArrayList();
         FileInputStream fluxo = new FileInputStream("objeto.ser");
         ObjectInputStream lerObj = null;
         while (fluxo.available()>0){
@@ -28,13 +32,12 @@ public class DadosObjeto {
             Objeto o = (Objeto)lerObj.readObject();
             objetos.add(o);
         }
-        fluxo.close();
         return objetos;
     }
     
     public ArrayList<Objeto> pesquisarObjetoNome(String nome) throws IOException, FileNotFoundException, ClassNotFoundException{ //pesquisa todos os objetos com determinado nome e retorna um arraylist com esses objetos
         ArrayList<Objeto> objetos = listarObjetos();
-        ArrayList<Objeto> objEncontrado = new ArrayList<>();
+        ArrayList<Objeto> objEncontrado = new ArrayList();
         
         for (int i = 0; i < objetos.size(); i++){
             if(nome.equals( objetos.get(i).getNome())){
@@ -58,7 +61,7 @@ public class DadosObjeto {
     
     public ArrayList<Objeto> pesquisarObjetoOpcao(int op) throws IOException, FileNotFoundException, ClassNotFoundException{ //pesquisa todos os objetos que sao de um determinado tipo e retorna um arraylist com esses objetos
         ArrayList<Objeto> objetos = listarObjetos();
-        ArrayList<Objeto> objEncontrado = new ArrayList<>();
+        ArrayList<Objeto> objEncontrado = new ArrayList();
         
         for (int i = 0; i < objetos.size(); i++){
             if(op == objetos.get(i).getOpcao()){ //tive que criar um getOpcao() em Objeto para poder usar aqui para comparar

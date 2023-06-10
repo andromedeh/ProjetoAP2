@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
+<AnchorPane fx:id="anchorPaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
       <TextField fx:id="campoCPF" layoutX="82.0" layoutY="150.0" prefHeight="25.0" prefWidth="280.0" promptText="cpf (apenas dígitos)" style="-fx-background-color: #CBD7E8;" />
       <Button fx:id="btnIrCadastrar" layoutX="144.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleBtnIrCadastrar" opacity="0.67" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #CBD7E8; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="Cadastre-se aqui!" textFill="#777f83">
@@ -41,5 +41,6 @@
             <Image url="@../icons/iconSenha.png" />
          </image>
       </ImageView>
+      <PasswordField fx:id="campoSenhaAdm" layoutX="112.0" layoutY="-135.0" prefHeight="25.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0, 0);" />
    </children>
 </AnchorPane>

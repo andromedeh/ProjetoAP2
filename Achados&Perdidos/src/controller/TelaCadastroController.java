@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TelaCadastroController implements Initializable {
+public class TelaCadastroController extends BaseController implements Initializable {
     @FXML
     private AnchorPane anchorPaneCadastro;
     @FXML
@@ -49,10 +49,19 @@ public class TelaCadastroController implements Initializable {
     
     public void handleBtnConfirmaCadastro(ActionEvent event) throws IOException, FileNotFoundException, ClassNotFoundException{
         String nome = campoNome.getText();
-        long cpf = Long.parseLong(campoCPF.getText().replace(".", ""));
+        long cpf, numero;
+        if(campoCPF.getText().isEmpty()){
+            cpf = 0;
+        }else{
+            cpf = Long.parseLong(campoCPF.getText());
+        }
+        if(campoNumero.getText().isEmpty()){
+            numero = 0;
+        }else{
+            numero = Long.parseLong(campoNumero.getText());
+        }
         String email = campoEmail.getText();
         String senha = campoSenha.getText();
-        long numero = Long.parseLong(campoNumero.getText());
         String endereco = campoEndereco.getText();
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || endereco.isEmpty() || campoCPF.getText().isEmpty() || campoNumero.getText().isEmpty()){
             labelStatus.setText("Preencha todos os campo!");
@@ -60,12 +69,12 @@ public class TelaCadastroController implements Initializable {
             if (cUser.procurarUsuario(cpf) != null){
                 labelStatus.setText("CPF já cadastrado!");
                 campoCPF.setText("");
-            }
+                }   
             else{
                 cUser.cadastrarUsuario(email, senha, nome, cpf, numero, endereco);
                 labelStatus.setText("Cadastro realizado!");
                 limparCampos();
-                anchorPaneCadastro.getScene().getWindow().hide();
+                sceneManager.switchScene("/fxml/telaLogin/fxml");
             }
         }
     }

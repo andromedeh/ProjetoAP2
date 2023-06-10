@@ -1,7 +1,8 @@
 package model;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Objeto {
+public class Objeto implements Serializable {
     private String nome;
     private String tipo;
     private String descricao;
