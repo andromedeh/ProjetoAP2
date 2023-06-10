@@ -74,7 +74,8 @@ public class TelaCadastroController extends BaseController implements Initializa
                 cUser.cadastrarUsuario(email, senha, nome, cpf, numero, endereco);
                 labelStatus.setText("Cadastro realizado!");
                 limparCampos();
-                sceneManager.switchScene("/fxml/telaLogin/fxml");
+                sceneManager.getStage().close();
+                sceneManager.switchScene("/fxml/telaLogin.fxml");
             }
         }
     }

@@ -14,6 +14,10 @@ public class ControleObjeto {
         }
     }
 
+     public ArrayList<Objeto> getListaObjetos() throws IOException, FileNotFoundException, ClassNotFoundException {
+        return dadosObjeto.listarObjetos();
+    }
+
     public void removerObjeto(int codigo) throws IOException, FileNotFoundException, ClassNotFoundException{
         dadosObjeto.removerObjeto(codigo);
     }
@@ -22,11 +26,8 @@ public class ControleObjeto {
         return dadosObjeto.pesquisarObjetoCodigo(codigo);
     }
     
-    public ArrayList<Objeto> procurarObjetoNome(String nome)throws IOException, FileNotFoundException, ClassNotFoundException{
-        return dadosObjeto.pesquisarObjetoNome(nome);
+    public Objeto procurarObjeto(String nome)throws IOException, FileNotFoundException, ClassNotFoundException{
+        return dadosObjeto.pesquisarObjeto(nome);
     }
     
-    public ArrayList<Objeto> procurarObjetoOpcao(int op) throws IOException, FileNotFoundException, ClassNotFoundException{
-        return dadosObjeto.pesquisarObjetoOpcao(op);
-    }
 }

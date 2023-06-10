@@ -1,40 +1,29 @@
 package model;
 import java.io.Serializable;
 import java.util.Date;
+import java.time.LocalDate;
 
 public class Objeto implements Serializable {
-    private String nome;
-    private String tipo;
+    private String categoria;
     private String descricao;
-    private Date data; // nao sei trabalhar com essa biblioteca
+    private LocalDate data;
     private String local; 
-    private int opcao; 
     private static int codigo = 0; 
 
-    public Objeto (String nome, String descricao, String local, int opcao){
-        setNome(nome);
+    public Objeto (String categoria, String descricao, String local, LocalDate data){
+        setCategoria(categoria);
         setDescricao(descricao);
         setLocal(local);
-        setOpcao(opcao);
-        // setDate (data que foi encontrado)
+        setData(data);
         Objeto.codigo += 1;
-        classificar();
     }
 
-    public String getNome() {
-        return nome;
+    public String getCategoria() {
+        return this.categoria;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getDescricao() {
@@ -45,11 +34,11 @@ public class Objeto implements Serializable {
         this.descricao = descricao;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -57,19 +46,11 @@ public class Objeto implements Serializable {
         return local;
     }
     
-    public void setOpcao(int opcao){
-        this.opcao = opcao;
-    }
-    
-    public int getOpcao(){
-        return opcao;
-    }
-
     public void setLocal(String local) {
         this.local = local;
     }
 
-    public int getCodigo() { //tive que tirar o static para poder usar em DadosObjeto na hora de remover o objeto
+    public int getCodigo() {
         return codigo;
     }
 
@@ -77,36 +58,8 @@ public class Objeto implements Serializable {
         Objeto.codigo = codigo;
     }
     
-    // set e get de Date 
-    
-    public void classificar(){ 
-        switch (this.opcao){                     
-            case 1:
-                this.tipo = "Documento pessoal";
-                break;
-            case 2: 
-                this.tipo = "Celular";
-                break;
-            case 3: 
-                this.tipo = "Carregador / Fone de Ouvido";
-                break;
-            case 4:
-                this.tipo = "Material Escolar";
-                break;
-            case 5:
-                this.tipo = "Chave";
-                break;
-            case 6:
-                this.tipo = "Peça de Roupa";
-                break;
-            default:
-                this.tipo = "Outro";
-        }
-    }
-    
     public String mostrarInformacoes(){
-        return "Nome: " + getNome()
-                + "\nTipo: " + getTipo()
+        return    "\nTipo: " + getCategoria()
                 + "\nDescricao: " + getDescricao()
                 + "\nData: " + getData()
                 + "\nLocal: " + getLocal()

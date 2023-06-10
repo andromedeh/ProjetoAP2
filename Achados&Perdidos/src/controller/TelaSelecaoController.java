@@ -24,47 +24,15 @@ public class TelaSelecaoController extends BaseController {
     
     @FXML
     private AnchorPane anchorPaneSelecao;
-    
-    /*@Override
-    public void initialize(URL url, ResourceBundle rb) {
-       
-    }*/  
 
-    public void handlePerfilAdm (ActionEvent event) throws Exception{
+    public void handlePerfilAdm (ActionEvent event){
         this.btnUser.setStyle("-fx-background-color: EFD481; -fx-background-radius: 20px; -fx-border-radius: 20px;");
-        sceneManager.switchScene("/fxml/telaLoginAdm.fxml");
-//        AnchorPane a;
-//        try {
-//            sceneManager.switchScene("/fxml/telaLoginAdm.fxml");
-//            a = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaLoginAdm.fxml"));
-//            Stage stage  = new Stage();
-//            Scene secondScene = new Scene(a);
-//            stage.setScene(secondScene);
-//            stage.setResizable(true);
-//            stage.show();
-//            anchorPaneSelecao.getScene().getWindow().hide();
-//        } catch (IOException ex) {
-//            Logger.getLogger(TelaSelecaoController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
+        sceneManager.switchScene("/fxml/telaLoginAdm.fxml");   
     }
 
     public void handlePerfilUser (ActionEvent event) throws Exception {
         this.btnAdm.setStyle("-fx-background-color: EFD481; -fx-background-radius: 20px; -fx-border-radius: 20px;");
         sceneManager.switchScene("/fxml/telaLogin.fxml");
-//        AnchorPane b;
-//        try {
-//            b = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaLogin.fxml"));
-//            Stage stage  = new Stage();
-//            Scene secondScene = new Scene(b);
-//            stage.setScene(secondScene);
-//            stage.setResizable(true);
-//            stage.show();
-//            anchorPaneSelecao.getScene().getWindow().hide();
-//        } catch (IOException ex) {
-//            Logger.getLogger(TelaSelecaoController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
     }
     
 }

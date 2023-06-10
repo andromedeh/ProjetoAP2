@@ -1,7 +1,6 @@
 package controller;
 
 import controller.ControleUsuario;
-import model.Administrador;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Administrador;
 
 public class TelaLoginController extends BaseController implements Initializable {
     
@@ -39,7 +39,7 @@ public class TelaLoginController extends BaseController implements Initializable
     
     @FXML
     private Button btnLogIn;
-
+    
         //Adm
 
     @FXML
@@ -50,10 +50,9 @@ public class TelaLoginController extends BaseController implements Initializable
 
     @FXML
     private PasswordField campoSenhaAdm;
-    
+
     private ControleUsuario cUser = new ControleUsuario();
     private Administrador Adm = new Administrador();
-    
     
     public void handleBtnIrCadastrar(ActionEvent event){
         sceneManager.switchScene("/fxml/telaCadastro.fxml");
@@ -64,6 +63,7 @@ public class TelaLoginController extends BaseController implements Initializable
         String senha = campoSenha.getText();
         if (cUser.loginUsuario(cpf, senha)){
             sceneManager.switchScene("/fxml/telaUsuario.fxml");
+
         } else{
             campoSenha.setPromptText("digite novamente");
             campoCPF.setPromptText("digite novamente");

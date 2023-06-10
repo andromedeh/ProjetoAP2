@@ -1,6 +1,7 @@
 
 package data;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,43 +10,56 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import model.Objeto;
+import model.Usuario;
 
-/**
- *
- * @author hugob
- */
 public class DadosObjeto {
+    private final String fileObjects = "objeto.ser";
     
-    public void cadastrarObjeto(Objeto o) throws FileNotFoundException, IOException{
-        FileOutputStream fluxo = new FileOutputStream("objeto.ser", true);
-        ObjectOutputStream gravarObj = new ObjectOutputStream(fluxo);
-        gravarObj.writeObject(o);
-        gravarObj.close();
+    public void cadastrarObjeto(Objeto o)throws FileNotFoundException, IOException{
+    ArrayList <Objeto> objetos = (ArrayList<Objeto>)listarObjetos();
+    objetos.add(o);
+    try{
+        FileOutputStream fluxo = new FileOutputStream(fileObjects);
+        ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
+        escreverObj.writeObject(objetos);
+        escreverObj.close();
+    } catch (FileNotFoundException ex) {
+        System.out.print(ex.getMessage());
+    } catch (IOException ex) {
+        System.out.print(ex.getMessage());
     }
-    
-    public ArrayList<Objeto> listarObjetos() throws FileNotFoundException, IOException, ClassNotFoundException{
-        ArrayList objetos = new ArrayList();
-        FileInputStream fluxo = new FileInputStream("objeto.ser");
+    }
+
+    public ArrayList<Objeto> listarObjetos() throws IOException{
+        ArrayList<Objeto> objetos = new ArrayList<Objeto>();
+        File arq = new File(fileObjects);
+        if (!arq.exists()){
+            arq.createNewFile();
+            return objetos;
+        }
+        FileInputStream fluxo;
         ObjectInputStream lerObj = null;
-        while (fluxo.available()>0){
+        try{
+            fluxo = new FileInputStream(arq);
             lerObj = new ObjectInputStream(fluxo);
-            Objeto o = (Objeto)lerObj.readObject();
-            objetos.add(o);
+            objetos = (ArrayList<Objeto>)lerObj.readObject();
+            fluxo.close();
+        } catch (FileNotFoundException ex) {
+            System.out.print(ex.getMessage());
+        } catch (ClassNotFoundException | IOException ex) {
+            System.out.print(ex.getMessage());
         }
         return objetos;
     }
-    
-    public ArrayList<Objeto> pesquisarObjetoNome(String nome) throws IOException, FileNotFoundException, ClassNotFoundException{ //pesquisa todos os objetos com determinado nome e retorna um arraylist com esses objetos
-        ArrayList<Objeto> objetos = listarObjetos();
-        ArrayList<Objeto> objEncontrado = new ArrayList();
-        
-        for (int i = 0; i < objetos.size(); i++){
-            if(nome.equals( objetos.get(i).getNome())){
-                objEncontrado.add(objetos.get(i));
-            }
+
+    public Objeto pesquisarObjeto(String descricao) throws IOException, FileNotFoundException, ClassNotFoundException{
+    Objeto flag = null;
+    for (int i = 0; i < listarObjetos().size(); i++){
+        if (descricao.equalsIgnoreCase(listarObjetos().get(i).getDescricao())){
+            flag = listarObjetos().get(i);  
         }
-        
-        return objEncontrado;
+    }
+    return flag;
     }
     
     public Objeto pesquisarObjetoCodigo(int codigo) throws IOException, FileNotFoundException, ClassNotFoundException{ //pesquisa o objeto com o determinado código
@@ -57,19 +71,6 @@ public class DadosObjeto {
             }
         }        
         return flag;
-    }
-    
-    public ArrayList<Objeto> pesquisarObjetoOpcao(int op) throws IOException, FileNotFoundException, ClassNotFoundException{ //pesquisa todos os objetos que sao de um determinado tipo e retorna um arraylist com esses objetos
-        ArrayList<Objeto> objetos = listarObjetos();
-        ArrayList<Objeto> objEncontrado = new ArrayList();
-        
-        for (int i = 0; i < objetos.size(); i++){
-            if(op == objetos.get(i).getOpcao()){ //tive que criar um getOpcao() em Objeto para poder usar aqui para comparar
-                objEncontrado.add(objetos.get(i));
-            }
-        }
-        
-        return objEncontrado;
     }
     
     public void removerObjeto(int codigo) throws IOException, FileNotFoundException, ClassNotFoundException {

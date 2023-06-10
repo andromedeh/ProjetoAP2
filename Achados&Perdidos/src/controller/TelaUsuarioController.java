@@ -3,6 +3,10 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.Action;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 
 public class TelaUsuarioController implements Initializable{
 
@@ -32,24 +35,39 @@ public class TelaUsuarioController implements Initializable{
     @FXML
     private ImageView imageLogOut;
 
-    public void OpBuscarObjeto(ActionEvent event) throws Exception{ // Usei o modo antigo pra poder servir como um "pop-up"
+    @FXML
+    void OpenProcurarObjeto(ActionEvent event) { //Forma antiga para servir como pop-up
         AnchorPane a;
-        try {
-            System.out.print("Entrou");
-            a = (AnchorPane)FXMLLoader.load(getClass().getResource("/fxml/telaBusca.fxml"));
-            Stage stage  = new Stage();
+        try {  
+            a = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaBusca.fxml"));
+            Stage secondStage  = new Stage();
             Scene secondScene = new Scene(a);
-            stage.setScene(secondScene);
-            stage.setResizable(true);
-            stage.show();
-            System.out.print("Saiu");
+            secondStage.setScene(secondScene);
+            secondStage.show();
+            
         } catch (IOException ex) {
-            System.out.print(ex.getMessage());
+            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void OpenNotificarObjeto(ActionEvent event){
+        AnchorPane a;
+        try {  
+            a = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaNotificarObjeto.fxml"));
+            Stage secondStage  = new Stage();
+            Scene secondScene = new Scene(a);
+            secondStage.setScene(secondScene);
+            secondStage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
         
     }
+
 }

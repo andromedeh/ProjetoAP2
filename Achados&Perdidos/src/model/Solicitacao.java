@@ -8,6 +8,10 @@ public class Solicitacao {
         this.status = status;
         this.objeto = o;
     }
+
+    public Solicitacao (Objeto o){
+        this.objeto = o;
+    }
     
     public Objeto getObjeto() {
         return objeto;
