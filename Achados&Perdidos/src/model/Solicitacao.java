@@ -1,6 +1,8 @@
 package model;
 
-public class Solicitacao {
+import java.io.Serializable;
+
+public class Solicitacao implements Serializable{
     private Objeto objeto;
     private String status;
     

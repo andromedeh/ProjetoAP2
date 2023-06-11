@@ -5,9 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.swing.Action;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TelaUsuarioController implements Initializable{
+public class TelaUsuarioController extends BaseController implements Initializable{
 
     @FXML
     private AnchorPane AnchorPaneUsuario;
@@ -33,8 +30,15 @@ public class TelaUsuarioController implements Initializable{
     private Button btnSolicitacoes;
 
     @FXML
-    private ImageView imageLogOut;
-
+    private ImageView imageHome;
+    
+    @FXML
+    private Button btnGoHome;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
     @FXML
     void OpenProcurarObjeto(ActionEvent event) { //Forma antiga para servir como pop-up
         AnchorPane a;
@@ -64,10 +68,11 @@ public class TelaUsuarioController implements Initializable{
             Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
+    
+    @FXML
+    void goHome(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaInicial.fxml");  
     }
+    
 
 }

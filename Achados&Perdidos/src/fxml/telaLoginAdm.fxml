@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneLoginAdm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
+<AnchorPane fx:id="anchorPaneLoginAdm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
       <Button fx:id="btnLogIn" layoutX="163.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleLogInAdm" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="OK" textAlignment="CENTER" textOverrun="CLIP">
          <font>
@@ -30,7 +30,5 @@
             <Image url="@../icons/iconLog.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="campoCPF" layoutX="125.0" layoutY="-141.0" prefHeight="25.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0, 0);" />
-      <PasswordField fx:id="campoSenha" layoutX="112.0" layoutY="-115.0" prefHeight="25.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0, 0);" />
    </children>
 </AnchorPane>

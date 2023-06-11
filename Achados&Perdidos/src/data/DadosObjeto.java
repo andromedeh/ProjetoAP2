@@ -10,25 +10,25 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import model.Objeto;
-import model.Usuario;
+import model.Solicitacao;
 
 public class DadosObjeto {
     private final String fileObjects = "objeto.ser";
     
     public void cadastrarObjeto(Objeto o)throws FileNotFoundException, IOException{
-    ArrayList <Objeto> objetos = (ArrayList<Objeto>)listarObjetos();
-    objetos.add(o);
-    try{
-        FileOutputStream fluxo = new FileOutputStream(fileObjects);
-        ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
-        escreverObj.writeObject(objetos);
-        escreverObj.close();
-    } catch (FileNotFoundException ex) {
-        System.out.print(ex.getMessage());
-    } catch (IOException ex) {
-        System.out.print(ex.getMessage());
-    }
-    }
+        ArrayList <Objeto> objetos = (ArrayList<Objeto>)listarObjetos();
+        objetos.add(o);
+        try{
+            FileOutputStream fluxo = new FileOutputStream(fileObjects);
+            ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
+            escreverObj.writeObject(objetos);
+            escreverObj.close();
+        } catch (FileNotFoundException ex) {
+            System.out.print(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.print(ex.getMessage());
+        }
+}
 
     public ArrayList<Objeto> listarObjetos() throws IOException{
         ArrayList<Objeto> objetos = new ArrayList<Objeto>();
@@ -73,11 +73,11 @@ public class DadosObjeto {
         return flag;
     }
     
-    public void removerObjeto(int codigo) throws IOException, FileNotFoundException, ClassNotFoundException {
+    public void removerObjeto(Objeto o) throws IOException, FileNotFoundException, ClassNotFoundException {
         ArrayList<Objeto> objetos = listarObjetos();
         Objeto objetoEncontrado = null;
         for (int i = 0; i < objetos.size(); i++) {
-            if (objetos.get(i).getCodigo() == codigo) {
+            if (objetos.get(i).getCodigo() == o.getCodigo()) {
                 objetoEncontrado = objetos.get(i);
                 objetos.remove(i);
                 break;
@@ -98,5 +98,35 @@ public class DadosObjeto {
             //usuario nao encontrado
         }
     }
-    
+
+    public void deleteObjeto(Objeto o) throws Exception {
+        ArrayList <Objeto> objetos = (ArrayList<Objeto>)listarObjetos();
+        boolean achou=false;
+        for (int i=0; i<objetos.size(); i++){
+             if (objetos.get(i).getCodigo() == o.getCodigo()){
+                 objetos.remove(i);
+                 achou=true;
+                 break;
+             }
+         }
+        if (achou){
+            atualizarArquivo(objetos);
+        }else{
+            System.out.print("aaaaaaaaaaaaaaaaaaaaa");
+        }
+    }
+
+    private void atualizarArquivo (ArrayList<Objeto> obj) throws Exception{
+        try{
+            FileOutputStream fluxo = new FileOutputStream(fileObjects);
+            ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
+            escreverObj.writeObject(obj);
+            escreverObj.close();
+          
+           } catch (FileNotFoundException ex) {
+            System.out.println (ex.getMessage());
+           } catch (IOException ex) {
+            System.out.println (ex.getMessage());
+        }
+    }
 }

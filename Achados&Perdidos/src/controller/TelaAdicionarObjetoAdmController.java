@@ -8,7 +8,6 @@ import java.time.ZoneId;
 import java.util.ResourceBundle;
 import controller.ControleObjeto;
 import model.Objeto;
-import model.Solicitacao;
 import controller.ControleSolicitacao;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -24,7 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class TelaNotificarObjetoController implements Initializable{
+public class TelaAdicionarObjetoAdmController implements Initializable{
 
     ObservableList<String> TipoList = FXCollections.observableArrayList("Documento pessoal",
     "Celular", "Carregador / Fone de Ouvido", "Chave", "Peça de Roupa", "Outro");
@@ -83,11 +82,9 @@ public class TelaNotificarObjetoController implements Initializable{
             labelStatus.setText("Preencha todos os campo!");
         }else{
             Objeto obj = new Objeto(categoria, descricao, local, data);
-            //cObj.cadastrarObjeto(obj);
-            Solicitacao s = new Solicitacao(obj);
-            cSol.cadastrarSolicitacao(s);
-            labelStatus.setText("Objeto notificado! Por favor, entregue em nossa sede!");       
-            //não deveria apagar as informações que foram colocadas depois de clicar em enviar não?
+            cObj.cadastrarObjeto(obj);
+            labelStatus.setText("Objeto cadastrador com sucesso!");
+            
         }
     }
 }

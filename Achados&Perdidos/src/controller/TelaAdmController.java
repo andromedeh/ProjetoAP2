@@ -1,19 +1,21 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TelaAdmController {
+public class TelaAdmController extends BaseController implements Initializable {
 
     @FXML
     private Button btnVerObjeto;
@@ -22,8 +24,16 @@ public class TelaAdmController {
     private Button btnSolicitacoesAdm;
 
     @FXML
-    private ImageView imageLogOut;
-
+    private ImageView imageHome;
+    
+    @FXML
+    private Button btnGoHome;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+    
     @FXML
     void handleSolicitacoesAdm(ActionEvent event) {
         AnchorPane e;
@@ -55,5 +65,20 @@ public class TelaAdmController {
             Logger.getLogger(TelaAdmController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    @FXML
+    void goHome(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaInicial.fxml");  
+    }
+    /*
+    @FXML
+            
+    void handleSolicitacoesAdm(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaSolicitacoes.fxml");
+    }
+    @FXML
+    void handleVerObjeto(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaObjetosAdm.fxml");
+    }
+    */
 }

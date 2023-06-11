@@ -1,6 +1,5 @@
 package model;
 import java.io.Serializable;
-import java.util.Date;
 import java.time.LocalDate;
 
 public class Objeto implements Serializable {

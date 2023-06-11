@@ -4,19 +4,30 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneBusca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaBuscaController">
+<AnchorPane fx:id="AnchorPaneBusca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="750.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaBuscaController">
    <children>
-      <TextField fx:id="textFieldPesquisaObjeto" layoutX="269.0" layoutY="83.0" onKeyTyped="#handlePesquisarObjeto" />
-      <Button layoutX="419.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="33.0" text="P" />
-      <TableView fx:id="tableObjeto" layoutX="69.0" layoutY="142.0" prefHeight="200.0" prefWidth="662.0">
+      <TextField fx:id="textFieldPesquisaObjeto" layoutX="15.0" layoutY="84.0" onKeyTyped="#handlePesquisarObjeto" prefHeight="26.0" prefWidth="657.0" style="-fx-background-color: #A6C4F1;" />
+      <Button layoutX="679.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" style="-fx-background-color: #FCD24F; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="Buscar">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font></Button>
+      <TableView fx:id="tableObjeto" layoutX="15.0" layoutY="136.0" prefHeight="234.0" prefWidth="720.0" style="-fx-background-color: #A6C4F1;">
          <columns>
-            <TableColumn fx:id="tableColumnObjetoTipo" prefWidth="166.4000244140625" text="Categoria" />
-            <TableColumn fx:id="tableColumnObjetoDescricao" prefWidth="239.20001220703125" text="Descrição" />
-            <TableColumn fx:id="tableColumnObjetoLocal" prefWidth="158.39996337890625" text="Local" />
-            <TableColumn fx:id="tableColumnObjetoData" prefWidth="100.00006103515625" text="Data" />
+            <TableColumn fx:id="tableColumnObjetoTipo" prefWidth="135.0" style="-fx-background-color: #FCD24F; -fx-border-color: #A6C4F1;" text="Categoria" />
+            <TableColumn fx:id="tableColumnObjetoDescricao" prefWidth="206.40003967285156" style="-fx-background-color: #FCD24F; -fx-border-color: #A6C4F1;" text="Descrição" />
+            <TableColumn fx:id="tableColumnObjetoLocal" prefWidth="251.199951171875" style="-fx-background-color: #FCD24F; -fx-border-color: #A6C4F1;" text="Local" />
+            <TableColumn fx:id="tableColumnObjetoData" minWidth="0.0" prefWidth="125.5999755859375" style="-fx-background-color: #FCD24F; -fx-border-color: #A6C4F1;" text="Data" />
          </columns>
       </TableView>
+      <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="275.0" layoutY="-16.0">
+         <image>
+            <Image url="@../icons/logoPrincipal.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

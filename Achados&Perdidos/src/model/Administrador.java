@@ -1,7 +1,5 @@
 package model;
-import controller.ControleUsuario;
 import javax.swing.JOptionPane;
-
 import controller.*;
 import java.io.IOException;
 

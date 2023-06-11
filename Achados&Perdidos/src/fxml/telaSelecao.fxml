@@ -8,6 +8,11 @@
 
 <AnchorPane fx:id="anchorPaneSelecao" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaSelecaoController">
    <children>
+      <ImageView fitHeight="567.0" fitWidth="803.0" layoutX="-120.0" layoutY="-102.0">
+         <image>
+            <Image url="@../icons/iconsFormas.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="204.0" fitWidth="393.0" layoutX="94.0" layoutY="39.0">
          <image>
             <Image url="@../icons/iconsTelaSelecao.png" />

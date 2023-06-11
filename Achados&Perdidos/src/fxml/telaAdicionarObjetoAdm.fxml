@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneNotificar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaNotificarObjetoController">
+<AnchorPane fx:id="AnchorPaneNotificar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaAdicionarObjetoAdmController">
    <children>
       <Label layoutX="46.0" layoutY="84.0" prefHeight="26.0" prefWidth="252.0" text="Notificar objeto encontrado" textFill="#e2e4e8">
          <font>
@@ -44,7 +44,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button fx:id="btnCadastrarObjeto" layoutX="496.0" layoutY="333.0" mnemonicParsing="false" onAction="#cadastrarObjeto" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-background-radius: 20px;" text="Enviar">
+      <Button fx:id="btnCadastrarObjeto" layoutX="496.0" layoutY="333.0" mnemonicParsing="false" onAction="#cadastrarObjeto" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-background-radius: 20px;" text="Adicionar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaUsuarioController">
+<AnchorPane fx:id="AnchorPaneUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaUsuarioController">
    <children>
       <ImageView fitHeight="87.0" fitWidth="390.0" layoutX="168.0" layoutY="23.0">
          <image>
@@ -52,10 +52,11 @@
             <Image url="@../icons/iconInicial.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageLogOut" fitHeight="30.0" fitWidth="32.0" layoutX="564.0" layoutY="8.0">
+      <ImageView fx:id="imageHome" fitHeight="41.0" fitWidth="44.0" layoutX="552.0" layoutY="3.0">
          <image>
-            <Image url="@../icons/imageLogOut.png" />
+            <Image url="@../icons/iconHome.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnGoHome" layoutX="555.0" layoutY="11.0" mnemonicParsing="false" onAction="#goHome" opacity="0.0" prefHeight="25.0" prefWidth="37.0" />
    </children>
 </AnchorPane>
