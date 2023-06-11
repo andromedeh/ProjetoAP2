@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="controller">
+  <ClassDiagramComponents>
+    <Class name="BaseController" package="controller" visibility="public" isAbstract="true" xPosition="1078.0" yPosition="907.0">
+      <Fields>
+        <Field name="sceneManager" type="SceneManager" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setSceneManager" returnType="void" visibility="public">
+          <Argument type="SceneManager" name="sceneManager"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControleObjeto" package="controller" visibility="public" xPosition="1491.0" yPosition="1511.0">
+      <Fields>
+        <Field name="dadosObjeto" type="DadosObjeto" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cadastrarObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="obj"/>
+        </Method>
+        <Method name="getListaObjetos" returnType="ArrayList&lt;Objeto&gt;" visibility="public"/>
+        <Method name="removerObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="codigo"/>
+        </Method>
+        <Method name="deleteObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="obj"/>
+        </Method>
+        <Method name="procurarObjetoCodigo" returnType="Objeto" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="procurarObjeto" returnType="Objeto" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControleSolicitacao" package="controller" visibility="public" xPosition="577.0" yPosition="1916.0">
+      <Fields>
+        <Field name="fileObjects" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cadastrarSolicitacao" returnType="void" visibility="public">
+          <Argument type="Solicitacao" name="s"/>
+        </Method>
+        <Method name="getSolicitacaoList" returnType="ArrayList&lt;Solicitacao&gt;" visibility="public"/>
+        <Method name="getSolicitacaoObjetoList" returnType="ArrayList&lt;Objeto&gt;" visibility="public"/>
+        <Method name="deleteSolicitacao" returnType="void" visibility="public">
+          <Argument type="Objeto" name="o"/>
+        </Method>
+        <Method name="atualizarArquivo" returnType="void" visibility="private">
+          <Argument type="ArrayList&lt;Solicitacao&gt;" name="s"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControleUsuario" package="controller" visibility="public" xPosition="819.0" yPosition="183.0">
+      <Fields>
+        <Field name="dadosUsuario" type="DadosUsuario" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getListaUsuarios" returnType="ArrayList&lt;Usuario&gt;" visibility="public"/>
+        <Method name="cadastrarUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="senha"/>
+          <Argument type="String" name="nome"/>
+          <Argument type="long" name="cpf"/>
+          <Argument type="long" name="numero"/>
+          <Argument type="String" name="endereco"/>
+        </Method>
+        <Method name="removerUsuario" returnType="void" visibility="public">
+          <Argument type="long" name="cpf"/>
+        </Method>
+        <Method name="procurarUsuario" returnType="Usuario" visibility="public">
+          <Argument type="long" name="cpf"/>
+        </Method>
+        <Method name="loginUsuario" returnType="boolean" visibility="public">
+          <Argument type="long" name="cpf"/>
+          <Argument type="String" name="senha"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SceneManager" package="controller" visibility="public" xPosition="1575.0" yPosition="560.0">
+      <Fields>
+        <Field name="stage" type="Stage" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Stage" name="stage"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="switchScene" returnType="void" visibility="public">
+          <Argument type="String" name="fxmlFile"/>
+        </Method>
+        <Method name="getStage" returnType="Stage" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TelaAdicionarObjetoAdmController" package="controller" visibility="public" xPosition="1073.0" yPosition="1608.0">
+      <Fields>
+        <Field name="TipoList" type="ObservableList&lt;String&gt;" visibility="package"/>
+        <Field name="AnchorPaneNotificar" type="AnchorPane" visibility="private"/>
+        <Field name="campoLocal" type="TextField" visibility="private"/>
+        <Field name="btnCadastrarObjeto" type="Button" visibility="private"/>
+        <Field name="campoData" type="DatePicker" visibility="private"/>
+        <Field name="campoDescricao" type="TextArea" visibility="private"/>
+        <Field name="choiceBoxTipo" type="ChoiceBox&lt;String&gt;" visibility="private"/>
+        <Field name="labelData" type="Label" visibility="private"/>
+        <Field name="labelDescricao" type="Label" visibility="private"/>
+        <Field name="labelLocal" type="Label" visibility="private"/>
+        <Field name="labelTipo" type="Label" visibility="private"/>
+        <Field name="labelStatus" type="Label" visibility="private"/>
+        <Field name="cObj" type="ControleObjeto" visibility="package"/>
+        <Field name="cSol" type="ControleSolicitacao" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="cadastrarObjeto" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaAdmController" package="controller" visibility="public" xPosition="1075.0" yPosition="1238.0">
+      <Fields>
+        <Field name="btnVerObjeto" type="Button" visibility="private"/>
+        <Field name="btnSolicitacoesAdm" type="Button" visibility="private"/>
+        <Field name="imageHome" type="ImageView" visibility="private"/>
+        <Field name="btnGoHome" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="handleSolicitacoesAdm" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleVerObjeto" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="goHome" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaBuscaController" package="controller" visibility="public" xPosition="1803.0" yPosition="1473.0">
+      <Fields>
+        <Field name="AnchorPaneBusca" type="AnchorPane" visibility="private"/>
+        <Field name="textFieldPesquisaObjeto" type="TextField" visibility="private"/>
+        <Field name="tableColumnObjetoData" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoTipo" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoDescricao" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoLocal" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableObjeto" type="TableView&lt;?&gt;" visibility="private"/>
+        <Field name="cObj" type="ControleObjeto" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="carregarTableObjeto" returnType="void" visibility="private"/>
+        <Method name="handlePesquisarObjeto" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaCadastroController" package="controller" visibility="public" xPosition="727.0" yPosition="474.0">
+      <Fields>
+        <Field name="anchorPaneCadastro" type="AnchorPane" visibility="private"/>
+        <Field name="btnConfirmaCadastro" type="Button" visibility="private"/>
+        <Field name="campoNome" type="TextField" visibility="private"/>
+        <Field name="campoCPF" type="TextField" visibility="private"/>
+        <Field name="campoEmail" type="TextField" visibility="private"/>
+        <Field name="campoSenha" type="TextField" visibility="private"/>
+        <Field name="campoNumero" type="TextField" visibility="private"/>
+        <Field name="campoEndereco" type="TextField" visibility="private"/>
+        <Field name="labelStatus" type="Label" visibility="private"/>
+        <Field name="cUser" type="ControleUsuario" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="handleBtnConfirmaCadastro" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="limparCampos" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="TelaInicialController" package="controller" visibility="public" xPosition="565.0" yPosition="1142.0">
+      <Fields>
+        <Field name="btnStart" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="handleBtnStart" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaLoginAdmController" package="controller" visibility="public" xPosition="1877.0" yPosition="616.0">
+      <Fields>
+        <Field name="campoSenha" type="PasswordField" visibility="private"/>
+        <Field name="btnLogIn" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="handleLogIn" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="limparCampos" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="TelaLoginController" package="controller" visibility="public" xPosition="1078.0" yPosition="436.0">
+      <Fields>
+        <Field name="anchorPaneLogin" type="AnchorPane" visibility="private"/>
+        <Field name="campoCPF" type="TextField" visibility="private"/>
+        <Field name="campoSenha" type="TextField" visibility="private"/>
+        <Field name="btnIrCadastrar" type="Button" visibility="private"/>
+        <Field name="btnLogIn" type="Button" visibility="private"/>
+        <Field name="anchorPaneLoginAdm" type="AnchorPane" visibility="private"/>
+        <Field name="btnLogInAdm" type="Button" visibility="private"/>
+        <Field name="campoSenhaAdm" type="PasswordField" visibility="private"/>
+        <Field name="cUser" type="ControleUsuario" visibility="private"/>
+        <Field name="Adm" type="Administrador" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handleBtnIrCadastrar" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleLogIn" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleLogInAdm" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="limparCampos" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="TelaNotificarController" package="controller" visibility="public" xPosition="1803.0" yPosition="276.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="TelaNotificarObjetoController" package="controller" visibility="public" xPosition="1449.0" yPosition="1857.0">
+      <Fields>
+        <Field name="TipoList" type="ObservableList&lt;String&gt;" visibility="package"/>
+        <Field name="AnchorPaneNotificar" type="AnchorPane" visibility="private"/>
+        <Field name="campoLocal" type="TextField" visibility="private"/>
+        <Field name="btnCadastrarObjeto" type="Button" visibility="private"/>
+        <Field name="campoData" type="DatePicker" visibility="private"/>
+        <Field name="campoDescricao" type="TextArea" visibility="private"/>
+        <Field name="choiceBoxTipo" type="ChoiceBox&lt;String&gt;" visibility="private"/>
+        <Field name="labelData" type="Label" visibility="private"/>
+        <Field name="labelDescricao" type="Label" visibility="private"/>
+        <Field name="labelLocal" type="Label" visibility="private"/>
+        <Field name="labelTipo" type="Label" visibility="private"/>
+        <Field name="labelStatus" type="Label" visibility="private"/>
+        <Field name="cObj" type="ControleObjeto" visibility="package"/>
+        <Field name="cSol" type="ControleSolicitacao" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="cadastrarObjeto" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaObjetosAdmController" package="controller" visibility="public" xPosition="1449.0" yPosition="1009.0">
+      <Fields>
+        <Field name="tabelaObjetos" type="TableView&lt;Objeto&gt;" visibility="private"/>
+        <Field name="nome" type="TableColumn&lt;Objeto, String&gt;" visibility="private"/>
+        <Field name="tipo" type="TableColumn&lt;Objeto, String&gt;" visibility="private"/>
+        <Field name="descricao" type="TableColumn&lt;Objeto, String&gt;" visibility="private"/>
+        <Field name="local" type="TableColumn&lt;Objeto, String&gt;" visibility="private"/>
+        <Field name="data" type="TableColumn&lt;Objeto, LocalDate&gt;" visibility="private"/>
+        <Field name="labelAviso" type="Label" visibility="private"/>
+        <Field name="btnAdicionarObjeto" type="Button" visibility="private"/>
+        <Field name="btnRemoverObjeto" type="Button" visibility="private"/>
+        <Field name="campoBusca" type="TextField" visibility="private"/>
+        <Field name="btnBuscar" type="Button" visibility="private"/>
+        <Field name="cObj" type="ControleObjeto" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="carregarTableObjeto" returnType="void" visibility="public"/>
+        <Method name="buscar" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="event"/>
+        </Method>
+        <Method name="adicionarObjeto" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="removerObjeto" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaSelecaoController" package="controller" visibility="public" xPosition="1888.0" yPosition="907.0">
+      <Fields>
+        <Field name="btnAdm" type="Button" visibility="private"/>
+        <Field name="btnUser" type="Button" visibility="private"/>
+        <Field name="anchorPaneSelecao" type="AnchorPane" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handlePerfilAdm" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handlePerfilUser" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaSolicitacaoAdmController" package="controller" visibility="public" xPosition="565.0" yPosition="1397.0">
+      <Fields>
+        <Field name="AnchorPaneSolicitacao" type="AnchorPane" visibility="private"/>
+        <Field name="labelAviso" type="Label" visibility="private"/>
+        <Field name="tableColumnObjetoData" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoDescricao" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoLocal" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableColumnObjetoTipo" type="TableColumn&lt;?, ?&gt;" visibility="private"/>
+        <Field name="tableObjeto" type="TableView&lt;Objeto&gt;" visibility="private"/>
+        <Field name="btnAceitarSolicitacao" type="Button" visibility="private"/>
+        <Field name="btnExcluirSolicitacao" type="Button" visibility="private"/>
+        <Field name="cSol" type="ControleSolicitacao" visibility="package"/>
+        <Field name="cObj" type="ControleObjeto" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="aceitarSolicitacao" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="carregarTableObjeto" returnType="void" visibility="private"/>
+        <Method name="excluirSolicitacao" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="arg0"/>
+          <Argument type="ResourceBundle" name="arg1"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaUsuarioController" package="controller" visibility="public" xPosition="565.0" yPosition="829.0">
+      <Fields>
+        <Field name="AnchorPaneUsuario" type="AnchorPane" visibility="private"/>
+        <Field name="btnNotificarObjeto" type="Button" visibility="private"/>
+        <Field name="btnProcurarObjeto" type="Button" visibility="private"/>
+        <Field name="btnSolicitacoes" type="Button" visibility="private"/>
+        <Field name="imageHome" type="ImageView" visibility="private"/>
+        <Field name="btnGoHome" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="OpenProcurarObjeto" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="OpenNotificarObjeto" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="goHome" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="cObj" source="controller.TelaNotificarObjetoController" target="controller.ControleObjeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sceneManager" source="controller.BaseController" target="controller.SceneManager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.BaseController" target="controller.SceneManager" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cObj" source="controller.TelaObjetosAdmController" target="controller.ControleObjeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaSelecaoController" target="controller.BaseController"/>
+    <IsRelation name="is" source="controller.TelaCadastroController" target="controller.BaseController"/>
+    <HasRelation name="cObj" source="controller.TelaAdicionarObjetoAdmController" target="controller.ControleObjeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cObj" source="controller.TelaSolicitacaoAdmController" target="controller.ControleObjeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cSol" source="controller.TelaSolicitacaoAdmController" target="controller.ControleSolicitacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cSol" source="controller.TelaAdicionarObjetoAdmController" target="controller.ControleSolicitacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaObjetosAdmController" target="controller.BaseController"/>
+    <HasRelation name="cUser" source="controller.TelaCadastroController" target="controller.ControleUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaLoginController" target="controller.BaseController"/>
+    <IsRelation name="is" source="controller.TelaLoginAdmController" target="controller.BaseController"/>
+    <HasRelation name="cUser" source="controller.TelaLoginController" target="controller.ControleUsuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaInicialController" target="controller.BaseController"/>
+    <HasRelation name="cObj" source="controller.TelaBuscaController" target="controller.ControleObjeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaUsuarioController" target="controller.BaseController"/>
+    <HasRelation name="cSol" source="controller.TelaNotificarObjetoController" target="controller.ControleSolicitacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="controller.TelaAdmController" target="controller.BaseController"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

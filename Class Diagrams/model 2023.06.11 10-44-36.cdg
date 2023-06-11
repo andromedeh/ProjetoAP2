@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="model">
+  <ClassDiagramComponents>
+    <Class name="Administrador" package="model" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="senha" type="String" visibility="private" isFinal="true"/>
+        <Field name="cUser" type="ControleUsuario" visibility="private"/>
+        <Field name="cObj" type="ControleObjeto" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getSenha" returnType="String" visibility="public"/>
+        <Method name="analisarSolicitacoes" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Objeto" package="model" visibility="public" xPosition="218.0" yPosition="20.0">
+      <Fields>
+        <Field name="categoria" type="String" visibility="private"/>
+        <Field name="descricao" type="String" visibility="private"/>
+        <Field name="data" type="LocalDate" visibility="private"/>
+        <Field name="local" type="String" visibility="private"/>
+        <Field name="codigo" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="categoria"/>
+          <Argument type="String" name="descricao"/>
+          <Argument type="String" name="local"/>
+          <Argument type="LocalDate" name="data"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCategoria" returnType="String" visibility="public"/>
+        <Method name="setCategoria" returnType="void" visibility="public">
+          <Argument type="String" name="categoria"/>
+        </Method>
+        <Method name="getDescricao" returnType="String" visibility="public"/>
+        <Method name="setDescricao" returnType="void" visibility="public">
+          <Argument type="String" name="descricao"/>
+        </Method>
+        <Method name="getData" returnType="LocalDate" visibility="public"/>
+        <Method name="setData" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="data"/>
+        </Method>
+        <Method name="getLocal" returnType="String" visibility="public"/>
+        <Method name="setLocal" returnType="void" visibility="public">
+          <Argument type="String" name="local"/>
+        </Method>
+        <Method name="getCodigo" returnType="int" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="mostrarInformacoes" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Solicitacao" package="model" visibility="public" xPosition="686.0" yPosition="20.0">
+      <Fields>
+        <Field name="objeto" type="Objeto" visibility="private"/>
+        <Field name="status" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Objeto" name="o"/>
+          <Argument type="String" name="status"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Objeto" name="o"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getObjeto" returnType="Objeto" visibility="public"/>
+        <Method name="getStatus" returnType="String" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="String" name="status"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="model" visibility="public" xPosition="984.0" yPosition="20.0">
+      <Fields>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="senha" type="String" visibility="private"/>
+        <Field name="cpf" type="long" visibility="private" isFinal="true"/>
+        <Field name="numero" type="long" visibility="private"/>
+        <Field name="endereco" type="String" visibility="private"/>
+        <Field name="solicitacoes" type="ArrayList&lt;Solicitacao&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="senha"/>
+          <Argument type="String" name="nome"/>
+          <Argument type="long" name="cpf"/>
+          <Argument type="long" name="numero"/>
+          <Argument type="String" name="endereco"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="setSenha" returnType="void" visibility="public">
+          <Argument type="String" name="senha"/>
+        </Method>
+        <Method name="getSenha" returnType="String" visibility="public"/>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getNumero" returnType="long" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="long" name="numero"/>
+        </Method>
+        <Method name="getCpf" returnType="long" visibility="public"/>
+        <Method name="getEndereco" returnType="String" visibility="public"/>
+        <Method name="setEndereco" returnType="void" visibility="public">
+          <Argument type="String" name="endereco"/>
+        </Method>
+        <Method name="enviarSolicitacao" returnType="void" visibility="public">
+          <Argument type="Solicitacao" name="s"/>
+        </Method>
+        <Method name="getSolicitacoes" returnType="ArrayList&lt;Solicitacao&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="model.Usuario" target="model.Solicitacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="solicitacoes" source="model.Usuario" target="model.Solicitacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Solicitacao&gt;"/>
+    <HasRelation name="objeto" source="model.Solicitacao" target="model.Objeto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.Solicitacao" target="model.Objeto" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

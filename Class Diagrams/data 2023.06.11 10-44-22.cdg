@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="data">
+  <ClassDiagramComponents>
+    <Class name="DadosObjeto" package="data" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="fileObjects" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cadastrarObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="o"/>
+        </Method>
+        <Method name="listarObjetos" returnType="ArrayList&lt;Objeto&gt;" visibility="public"/>
+        <Method name="pesquisarObjeto" returnType="Objeto" visibility="public">
+          <Argument type="String" name="descricao"/>
+        </Method>
+        <Method name="pesquisarObjetoCodigo" returnType="Objeto" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="removerObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="o"/>
+        </Method>
+        <Method name="deleteObjeto" returnType="void" visibility="public">
+          <Argument type="Objeto" name="o"/>
+        </Method>
+        <Method name="atualizarArquivo" returnType="void" visibility="private">
+          <Argument type="ArrayList&lt;Objeto&gt;" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DadosUsuario" package="data" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="fileUsers" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cadastrarUsuario" returnType="void" visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Method>
+        <Method name="listarUsuario" returnType="ArrayList&lt;Usuario&gt;" visibility="public"/>
+        <Method name="pesquisarUsuario" returnType="Usuario" visibility="public">
+          <Argument type="long" name="cpf"/>
+        </Method>
+        <Method name="removerUsuario" returnType="void" visibility="public">
+          <Argument type="long" name="cpf"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
