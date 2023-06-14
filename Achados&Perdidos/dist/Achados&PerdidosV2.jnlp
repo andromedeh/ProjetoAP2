@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Achados&PerdidosV2.jnlp">
+  <information>
+    <title>Achados&PerdidosV2</title>
+    <vendor>Andreina</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Achados&PerdidosV2.jar" size="1396175" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="view.Sistema"  name="Achados&PerdidosV2" />
+  <update check="always"/>
+</jnlp>

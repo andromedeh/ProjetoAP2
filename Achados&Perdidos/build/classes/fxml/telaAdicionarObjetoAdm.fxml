@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneNotificar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaAdicionarObjetoAdmController">
+<AnchorPane fx:id="AnchorPaneNotificar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaAdicionarObjetoAdmController">
    <children>
-      <Label layoutX="46.0" layoutY="84.0" prefHeight="26.0" prefWidth="252.0" text="Notificar objeto encontrado" textFill="#e2e4e8">
+      <Label layoutX="46.0" layoutY="84.0" prefHeight="26.0" prefWidth="252.0" text="Adicionar objeto encontrado" textFill="#e2e4e8">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
