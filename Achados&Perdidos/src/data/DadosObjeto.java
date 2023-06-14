@@ -94,9 +94,6 @@ public class DadosObjeto {
             gravarObj.close();
             //usuario removido com sucesso!
         } 
-        else {
-            //usuario nao encontrado
-        }
     }
 
     public void deleteObjeto(Objeto o) throws Exception {

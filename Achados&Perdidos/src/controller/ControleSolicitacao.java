@@ -15,7 +15,7 @@ public class ControleSolicitacao {
     private final String fileObjects = "solicitacao.ser";
 
     public void cadastrarSolicitacao(Solicitacao s)throws Exception{
-        //Solicitacao s = new Solicitacao(o);
+        
         ArrayList <Solicitacao> solicitacoes = (ArrayList<Solicitacao>)getSolicitacaoList();
         solicitacoes.add(s);
         try{
@@ -91,8 +91,6 @@ public class ControleSolicitacao {
          }
         if (achou){
             atualizarArquivo(solicitacoes);
-        }else{
-            System.out.print("aaaaaaaaaaaaaaaaaaaaa");
         }
     }
 

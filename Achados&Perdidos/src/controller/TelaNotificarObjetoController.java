@@ -6,11 +6,8 @@ import java.util.List;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
-import controller.ControleObjeto;
 import model.Objeto;
 import model.Solicitacao;
-import controller.ControleSolicitacao;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,13 +65,12 @@ public class TelaNotificarObjetoController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        choiceBoxTipo.setItems(TipoList);
-        choiceBoxTipo.setValue("Selecione uma categoria");
+        limparCampos();
+        labelStatus.setText("");
     }
 
     @FXML
     private void cadastrarObjeto(ActionEvent event) throws Exception{
-        //Date data = Date.from(campoData.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         LocalDate data = campoData.getValue();
         String descricao = campoDescricao.getText();
         String local = campoLocal.getText();
@@ -83,11 +79,17 @@ public class TelaNotificarObjetoController implements Initializable{
             labelStatus.setText("Preencha todos os campo!");
         }else{
             Objeto obj = new Objeto(categoria, descricao, local, data);
-            //cObj.cadastrarObjeto(obj);
             Solicitacao s = new Solicitacao(obj);
             cSol.cadastrarSolicitacao(s);
-            labelStatus.setText("Objeto notificado! Por favor, entregue em nossa sede!");       
-            //não deveria apagar as informações que foram colocadas depois de clicar em enviar não?
+            labelStatus.setText("Objeto notificado! Por favor, entregue em nossa sede!");  
+            limparCampos();
         }
+    }
+    
+    public void limparCampos(){
+        choiceBoxTipo.setItems(TipoList);
+        choiceBoxTipo.setValue("Selecione uma categoria");
+        campoLocal.clear();
+        campoDescricao.clear();
     }
 }

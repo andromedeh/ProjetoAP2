@@ -68,6 +68,7 @@ public class TelaObjetosAdmController extends BaseController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        carregarTableObjeto();
+       labelAviso.setText("");
     }
 
     public void carregarTableObjeto() {

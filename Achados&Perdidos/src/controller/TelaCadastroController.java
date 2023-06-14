@@ -4,27 +4,22 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import controller.ControleUsuario;
 import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class TelaCadastroController extends BaseController implements Initializable {
     @FXML
     private AnchorPane anchorPaneCadastro;
     @FXML
     private Button btnConfirmaCadastro;
+    @FXML
+    private Button btnGoBack;
     @FXML
     private TextField campoNome;
     @FXML
@@ -89,4 +84,7 @@ public class TelaCadastroController extends BaseController implements Initializa
         campoEndereco.setText("");
     }
     
+    public void GoBack(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaLogin.fxml");
+    }
 }

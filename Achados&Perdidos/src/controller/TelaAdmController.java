@@ -29,6 +29,9 @@ public class TelaAdmController extends BaseController implements Initializable {
     @FXML
     private Button btnGoHome;
     
+    @FXML
+    private Button btnLogOut;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
@@ -39,7 +42,6 @@ public class TelaAdmController extends BaseController implements Initializable {
         AnchorPane e;
         try {
             e = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/telaSolicitacoesAdm.fxml"));
-            // this.btnStart.setStyle("-fx-background-color: E6BE40;");
             Stage secondStage = new Stage();
             Scene secondScene = new Scene(e);
             secondStage.setScene(secondScene);
@@ -55,7 +57,6 @@ public class TelaAdmController extends BaseController implements Initializable {
         AnchorPane f;
         try {
             f = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/telaObjetosAdm.fxml"));
-            // this.btnStart.setStyle("-fx-background-color: E6BE40;");
             Stage secondStage = new Stage();
             Scene secondScene = new Scene(f);
             secondStage.setScene(secondScene);
@@ -70,15 +71,10 @@ public class TelaAdmController extends BaseController implements Initializable {
     void goHome(ActionEvent event){
         sceneManager.switchScene("/fxml/telaInicial.fxml");  
     }
-    /*
+    
     @FXML
-            
-    void handleSolicitacoesAdm(ActionEvent event){
-        sceneManager.switchScene("/fxml/telaSolicitacoes.fxml");
+    void logOut(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaSelecao.fxml");  
     }
-    @FXML
-    void handleVerObjeto(ActionEvent event){
-        sceneManager.switchScene("/fxml/telaObjetosAdm.fxml");
-    }
-    */
+    
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,14 +10,14 @@
 
 <AnchorPane fx:id="AnchorPaneUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #6ABAF4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaUsuarioController">
    <children>
-      <ImageView fitHeight="87.0" fitWidth="390.0" layoutX="168.0" layoutY="23.0">
+      <ImageView fitHeight="81.0" fitWidth="390.0" layoutX="184.0" layoutY="36.0">
          <image>
             <Image url="@../icons/logo.png" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: #A6C4F1;">
          <children>
-            <Button fx:id="btnProcurarObjeto" graphicTextGap="2.0" layoutX="23.0" layoutY="119.0" mnemonicParsing="false" onAction="#OpenProcurarObjeto" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #FCD24F; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="BUSCAR" textAlignment="CENTER">
+            <Button fx:id="btnProcurarObjeto" graphicTextGap="2.0" layoutX="23.0" layoutY="145.0" mnemonicParsing="false" onAction="#OpenProcurarObjeto" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #FCD24F; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="BUSCAR" textAlignment="CENTER">
                <font>
                   <Font name="Malgun Gothic Bold" size="12.0" />
                </font>
@@ -24,7 +25,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btnNotificarObjeto" graphicTextGap="2.0" layoutX="23.0" layoutY="178.0" mnemonicParsing="false" onAction="#OpenNotificarObjeto" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="NOTIFICAR" textAlignment="CENTER">
+            <Button fx:id="btnNotificarObjeto" graphicTextGap="2.0" layoutX="23.0" layoutY="202.0" mnemonicParsing="false" onAction="#OpenNotificarObjeto" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="NOTIFICAR" textAlignment="CENTER">
                <font>
                   <Font name="Malgun Gothic Bold" size="12.0" />
                </font>
@@ -32,15 +33,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btnSolicitacoes" graphicTextGap="2.0" layoutX="23.0" layoutY="234.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #FCD24F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="SOLICITAÇÕES" textAlignment="CENTER">
-               <font>
-                  <Font name="Malgun Gothic Bold" size="12.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="50.0" layoutY="37.0">
+            <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="50.0" layoutY="60.0">
                <image>
                   <Image url="@../icons/iconLog2.png" />
                </image>
@@ -54,9 +47,20 @@
       </ImageView>
       <ImageView fx:id="imageHome" fitHeight="41.0" fitWidth="44.0" layoutX="552.0" layoutY="3.0">
          <image>
-            <Image url="@../icons/iconHome.png" />
+            <Image url="@../icons/iconGoHome.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnGoHome" layoutX="555.0" layoutY="11.0" mnemonicParsing="false" onAction="#goHome" opacity="0.0" prefHeight="25.0" prefWidth="37.0" />
+      <Button fx:id="btnGoHome" layoutX="559.0" layoutY="11.0" mnemonicParsing="false" onAction="#goHome" opacity="0.0" prefHeight="23.0" prefWidth="31.0" />
+      <ImageView fitHeight="41.0" fitWidth="44.0" layoutX="514.0" layoutY="3.0">
+         <image>
+            <Image url="@../icons/iconLogOut.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnLogOut" layoutX="521.0" layoutY="11.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="25.0" prefWidth="31.0" />
+      <Label fx:id="labelBoasVindas" layoutX="169.0" layoutY="14.0" prefHeight="18.0" prefWidth="339.0" textFill="#cad8ee">
+         <font>
+            <Font name="Malgun Gothic Bold" size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

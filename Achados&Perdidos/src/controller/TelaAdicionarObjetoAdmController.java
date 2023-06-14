@@ -69,11 +69,11 @@ public class TelaAdicionarObjetoAdmController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         choiceBoxTipo.setItems(TipoList);
         choiceBoxTipo.setValue("Selecione uma categoria");
+        limparCampos();
     }
 
     @FXML
     private void cadastrarObjeto(ActionEvent event) throws Exception{
-        //Date data = Date.from(campoData.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         LocalDate data = campoData.getValue();
         String descricao = campoDescricao.getText();
         String local = campoLocal.getText();
@@ -83,8 +83,13 @@ public class TelaAdicionarObjetoAdmController implements Initializable{
         }else{
             Objeto obj = new Objeto(categoria, descricao, local, data);
             cObj.cadastrarObjeto(obj);
-            labelStatus.setText("Objeto cadastrador com sucesso!");
-            
+            labelStatus.setText("Objeto cadastrado com sucesso!");
+            limparCampos();
         }
+    }
+    
+    public void limparCampos(){
+        campoLocal.clear();
+        campoDescricao.clear();
     }
 }

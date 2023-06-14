@@ -3,18 +3,13 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
-public class TelaSelecaoController extends BaseController {
+public class TelaSelecaoController extends BaseController implements Initializable {
 
     @FXML
     private Button btnAdm;
@@ -24,7 +19,15 @@ public class TelaSelecaoController extends BaseController {
     
     @FXML
     private AnchorPane anchorPaneSelecao;
-
+    
+    @FXML
+    private Button btnGoBack;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setLoginInstanciado("");
+    }
+    
     public void handlePerfilAdm (ActionEvent event){
         this.btnUser.setStyle("-fx-background-color: EFD481; -fx-background-radius: 20px; -fx-border-radius: 20px;");
         sceneManager.switchScene("/fxml/telaLoginAdm.fxml");   
@@ -35,4 +38,8 @@ public class TelaSelecaoController extends BaseController {
         sceneManager.switchScene("/fxml/telaLogin.fxml");
     }
     
+    @FXML
+    void goBack(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaInicial.fxml");  
+    }
 }

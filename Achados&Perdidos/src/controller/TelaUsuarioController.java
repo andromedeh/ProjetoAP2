@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -27,20 +28,25 @@ public class TelaUsuarioController extends BaseController implements Initializab
     private Button btnProcurarObjeto;
 
     @FXML
-    private Button btnSolicitacoes;
-
-    @FXML
     private ImageView imageHome;
     
     @FXML
     private Button btnGoHome;
     
+    @FXML 
+    private Button btnLogOut;
+    
+    @FXML
+    private Label labelBoasVindas;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        String boasVindas = "Bem-vindo(a), " + getLoginInstanciado() + "!";
+        labelBoasVindas.setText(boasVindas);
     }
+    
     @FXML
-    void OpenProcurarObjeto(ActionEvent event) { //Forma antiga para servir como pop-up
+    void OpenProcurarObjeto(ActionEvent event) { // pop-up
         AnchorPane a;
         try {  
             a = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaBusca.fxml"));
@@ -74,5 +80,9 @@ public class TelaUsuarioController extends BaseController implements Initializab
         sceneManager.switchScene("/fxml/telaInicial.fxml");  
     }
     
+    @FXML
+    void logOut(ActionEvent event){
+        sceneManager.switchScene("/fxml/telaSelecao.fxml");  
+    }
 
 }

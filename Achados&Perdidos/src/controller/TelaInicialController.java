@@ -25,20 +25,7 @@ public class TelaInicialController extends BaseController implements Initializab
     }  
 
     public void handleBtnStart (ActionEvent event) {
-        // this.btnStart.setStyle("-fx-background-color: E6BE40;");
-        sceneManager.switchScene("/fxml/telaSelecao.fxml");
-//        AnchorPane a;
-//        try {
-//            a = (AnchorPane)FXMLLoader.load (getClass().getResource("/fxml/telaSelecao.fxml"));
-//            this.btnStart.setStyle("-fx-background-color: E6BE40;");
-//            Stage secondStage  = new Stage();
-//            Scene secondScene = new Scene(a);
-//            secondStage.setScene(secondScene);
-//            secondStage.show();
-//            
-//        } catch (IOException ex) {
-//            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        sceneManager.switchScene("/fxml/telaSelecao.fxml");        
     }
 
     
